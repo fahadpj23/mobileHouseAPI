@@ -4,9 +4,9 @@ const Product = db.prodcuts;
 
 const addProduct = async (req, res) => {
   let info = {
-    id: 1,
-    name: "headset",
+    name: req.body.name,
   };
+  console.log(info);
   const product = await Product.create(info);
   res.status(200).send(product);
 };
