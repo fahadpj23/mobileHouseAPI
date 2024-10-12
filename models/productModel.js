@@ -9,6 +9,26 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    hsn: {
+      type: DataTypes.STRING,
+    },
+    purchaseRate: {
+      type: DataTypes.INTEGER,
+    },
+    mrp: {
+      type: DataTypes.INTEGER,
+    },
+    salesRate: {
+      type: DataTypes.INTEGER,
+    },
+    gst: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
   return Product;
 };

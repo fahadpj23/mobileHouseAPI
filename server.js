@@ -18,12 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 const router = require("./routes/productRouter");
 app.use("/api/products", router);
 
-//testing api
-
-app.get("/", (req, res) => {
-  res.json({ message: "testing api" });
-});
-
 const PORT = process.env.PORT || 8080;
 
 //server
