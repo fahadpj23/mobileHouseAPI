@@ -13,7 +13,6 @@ const addProduct = async (req, res) => {
     gst: productDetails.gst,
     category: productDetails.category,
   };
-  console.log(info);
   const product = await Product.create(info);
   res.status(200).send(product);
 };
