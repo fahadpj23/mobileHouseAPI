@@ -2,8 +2,8 @@ const productController = require("../controllers/productController.js");
 
 const router = require("express").Router();
 
-router.post("/addProduct", productController.addProduct);
+router.post("/addEntity", productController.addProduct);
 
-router.get("/getAllProduct", productController.getAllProduct);
+router.get("/getEntities", productController.getAllProduct);
 
 module.exports = router;

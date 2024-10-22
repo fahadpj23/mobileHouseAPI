@@ -4,8 +4,10 @@ const express = require("express");
 
 const router = express.Router();
 
-router.post("/addSupplier", supplierController.addSupplier);
+router.post("/addEntity", supplierController.addSupplier);
 
-router.get("/getSupplier", supplierController.getSupplier);
+router.get("/getEntities", supplierController.getSupplier);
+
+router.delete("/:id", supplierController.deleteSupplier);
 
 module.exports = router;
