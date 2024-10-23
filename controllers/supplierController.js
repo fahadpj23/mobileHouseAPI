@@ -30,20 +30,50 @@ const addSupplier = async (req, res) => {
 };
 
 const getSupplier = async (req, res) => {
-  let suppliers = await Supplier.findAll({});
-  res.status(200).json({ data: suppliers });
+  try {
+    let suppliers = await Supplier.findAll({
+      order: [["id", "DESC"]],
+    });
+    res.status(200).json({ data: suppliers });
+  } catch (error) {
+    return res.status(500).json({
+      message: "internal server error",
+      error: error.message,
+    });
+  }
 };
 
 const deleteSupplier = async (req, res) => {
-  console.log(req.param);
-  let supplierDelete = await db.supplier.destroy({
-    where: { id: 1 },
-  });
-  res.status(200).json({ message: "supplier Deleted successFully" });
+  try {
+    let supplierDelete = await db.supplier.destroy({
+      where: { id: 1 },
+    });
+    res.status(200).json({ message: "supplier Deleted successFully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "internal server error",
+      error: error.message,
+    });
+  }
 };
 
+const getSupplierById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    let getSupplierById = await db.supplier.findByPk(id);
+    res.status(200).json({
+      data: getSupplierById,
+    });
+  } catch (error) {
+    res.status(500).josn({
+      message: "internal Server error",
+      error: error.message,
+    });
+  }
+};
 module.exports = {
   addSupplier,
   getSupplier,
   deleteSupplier,
+  getSupplierById,
 };

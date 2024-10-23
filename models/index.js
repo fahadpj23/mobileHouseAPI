@@ -32,7 +32,7 @@ db.sequelize = sequelize;
 db.prodcuts = require("./productModel.js")(sequelize, DataTypes);
 db.supplier = require("./supplierModel.js")(sequelize, DataTypes);
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log("re sync done");
 });
 

@@ -10,4 +10,6 @@ router.get("/getEntities", supplierController.getSupplier);
 
 router.delete("/:id", supplierController.deleteSupplier);
 
+router.get("/:id", supplierController.getSupplierById);
+
 module.exports = router;
